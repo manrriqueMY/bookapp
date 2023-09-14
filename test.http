@@ -1,0 +1,37 @@
+@domain = http://localhost:8000
+
+###
+POST {{domain}}/book HTTP/1.1
+content-type: application/json
+
+{
+    "title": "The lord of the rings",
+    "chapters": 3,
+    "pages": 45,
+    "authors": [1]
+}
+
+###
+GET {{domain}}/book HTTP/1.1
+content-type: application/json
+
+###
+POST {{domain}}/author HTTP/1.1
+content-type: application/json
+
+{
+    "name": "J.R.R. Tolkien",
+    "books": [{
+        "title": "The Hobit",
+        "chapters": 3,
+        "pages": 15
+    }]
+}
+
+###
+GET {{domain}}/author HTTP/1.1
+content-type: application/json
+
+###
+GET {{domain}}/book/average/1 HTTP/1.1
+content-type: application/json
